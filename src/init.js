@@ -23,8 +23,8 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
+      $('body').height() * Math.random() * .96,
+      $('body').width() * Math.random() * .96,
       Math.random() * 1000
     );
 
@@ -38,20 +38,47 @@ $(document).ready(function() {
   var myFunc = function(currentDancer) {
     if ($(currentDancer).hasClass('BreakDancer')) {
       $(currentDancer).on('mouseover', function(event) {
-      // var randomNum = Math.floor(Math.random() * 3) + 1;
-        $(currentDancer).css('border', '10px solid white');
+        $(currentDancer).css('border', '5px solid white');
+      });
+
+      $(currentDancer).on('click', function(event) {
+        var randomNum = Math.floor(Math.random() * 3) + 1;
+        var $myImg = $('<img class="sprite" src="/assets/sprites/0' + randomNum + '.png">');
+        $($myImg).css('position', 'absolute');
+        var topVal = currentDancer.css('top'); // 95px
+        // topVal = Number(topVal.substring(0, topVal.indexOf('p')));
+        // topVal = topVal + 'px';
+
+        var leftVal = currentDancer.css('left'); // 95px
+        // leftVal = Number(leftVal.substring(0, leftVal.indexOf('p')));
+        // leftVal = leftVal + 'px';
+        $($myImg).css('top', topVal);
+        $($myImg).css('left', leftVal);
+        $('body').append($myImg);
       });
     }
   };
 
+  $('.BreakDancer').on('click', function(event) {
+    console.log('here');
+    var randomNum = Math.floor(Math.random() * 3) + 1;
+    var $myImg = $('<img src="/assets/sprites/0' + randoNum + '.png">');
+    $myImg.css()
+    $('body').append($myImg);
+  });
+
+
   $('.lineupButton').on('click', function(event) {
+    $('img.sprite').remove();
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
   });
 
   $('.freeDance').on('click', function(event) {
-    $('body').css('background-image', 'url("https://thumbs.gfycat.com/PoshHotHeron-size_restricted.gif")');
+    $('img.sprite').remove();
+    $('body').css('background-image', 'url("https://i.gifer.com/ByqD.gif")');
+    $('body').css('box-shadow', 'inset 0 0 0 1000px rgba(0,0,0,.5)');
     $('body').css('background-size', 'cover');
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].breakLine();
@@ -66,8 +93,9 @@ $(document).ready(function() {
         var dancer2 = window.dancers[j];
         var distance = calDistance(dancer1, dancer2);
         console.log('distance', distance);
-        if (distance < 51) {
-          dancer1.$node.css('background-image', "url('assets/pngegg (1).png')");
+        if (distance < 52) {
+          dancer1.$node.css('display', 'none');
+          // dancer1.$node.css('background-image', "url('assets/pngegg (1).png')");
           dancer2.$node.css('background-image', "url('assets/pngegg (1).png')");
         }
       }
@@ -77,6 +105,7 @@ $(document).ready(function() {
 
   $('.clear').on('click', function(event) {
     $('span.dancer').remove();
+    $('img.sprite').remove();
     window.dancers = [];
     $('body').css('background-image', 'url("https://www.transparenttextures.com/patterns/always-grey.png")');
     $('body').css('background-size', 'auto');

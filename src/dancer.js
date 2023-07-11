@@ -1,5 +1,4 @@
 //pseudoclassical:
-
 var Dancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
@@ -8,9 +7,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
 };
 
 Dancer.prototype.step = function() {
-
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
-
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -31,9 +28,7 @@ Dancer.prototype.lineUp = function() {
 
 Dancer.prototype.breakLine = function() {
   this.setPosition($('body').height() * Math.random(), $('body').width() * Math.random());
-
 };
-
 
 
 // // Creates and returns a new dancer object that can step
