@@ -1,27 +1,120 @@
 body, html{
+  overflow-y: hidden;
+  overflow-x: hidden;
   height:100%;
 }
 body{
   margin: 0px;
   background-color:#444;
-  font-size: 18px;
+  background-color: #f5b9f5;
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  font-family: 'Lato', sans-serif;
 }
+
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+  font-size: 25px;
 }
 .topbar{
-  height:32px;
-  background-color: #555;
+  height: 40px;
+  background-color: #27296d;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
+
+.topbar button {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
+  padding: 10px;
+  background: #5e63b6;
+  background-size: 300px,300px,100%;
+  color: #fff;
+  border-bottom: 5px solid #f5c7f7;
+  margin-left: 20px;
+}
+
+.topbar button:hover {
+    box-shadow: 0px 0px 10px #fff;
+}
+
+.addDancerButton {
+  display: inline-block;
+  text-decoration: none;
+  background: #5e63b6;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.addDancerButton:hover {
+  box-shadow: 0px 0px 10px #fff;
+}
+
 .title{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border:2px solid black;
   position:absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.BlinkyDancer {
+  /* background-color: red; */
+  background-image: url('assets/pngegg\ \(2\).png');
+  background-size: contain;
+}
+
+.BouncyDancer {
+  /* background-color: green; */
+  background-image: url('assets/pngegg\ \(3\).png');
+  background-size: contain;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+}
+
+.BreakDancer {
+  /* background-color: blue; */
+  background-image: url('assets/pngegg.png');
+  background-size: contain;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.lineUpContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: blue;
 }

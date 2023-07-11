@@ -6,11 +6,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/bouncyDancer.js"></script>
+    <script src="src/breakDancer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">+ blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BouncyDancer">+  bounce dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BreakDancer">+  break dancer</a>
+      <button href="#" class="lineupButton" data-dancer-maker-function-name="">Line Up</button>
+      <button href="#" class="interacting" data-dancer-maker-function-name="">Interact</button>
+      <button href="#" class="freeDance" data-dancer-maker-function-name="">Free Dance</button>
+      <button href="#" class="clear" data-dancer-maker-function-name="">Clear</button>
+    </div>
     <script src="src/init.js"></script>
   </body>
 </html>
